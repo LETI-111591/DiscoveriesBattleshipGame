@@ -1,4 +1,4 @@
-# Rosa Parques
+# Discoveries Battleship Game
 
 ### LETI - ISCTE
 
@@ -9,6 +9,8 @@
 | 129789 | José Salvação |
 
 ---
+
+
 ## Tipos de Navios
 O jogo inclui vários navios, inspirados em embarcações navais atuais e em navios utilizados na altura dos Descobrimentos.
 
@@ -23,3 +25,37 @@ O jogo inclui vários navios, inspirados em embarcações navais atuais e em nav
 **Barca - Submarino** (Barge) foi uma pequena embarcação a vela de um só mastro, usada no início da expansão marítima portuguesa no século XV para a navegação costeira e exploração inicial da costa ocidental africana. Ocupa apenas 1 casa no tabuleiro e cada jogador tem acesso a 4 Barcas
 
 ---
+
+
+## Regras
+**Batalha Naval** é um jogo para dois jogadores em que cada jogador tenta localizar e afundar todos os navios do adversário antes que os seus próprios navios sejam destruídos.
+
+Cada jogador possui um tabuleiro onde coloca os seus navios e outro onde regista os disparos efetuados contra o adversário.
+
+### Objetivo
+O unico objetivo do jogo é encontrar e afundar os navios adversários antes de que os o adversário encontre e afunde os seus.
+Ganha quem conseguir afundar os navios aversários primeiro.
+
+### Tabuleiro
+Cada jogador pussui dois tabuleiros 10x10
+Cada tabuleiro representa um mar (mar adversário e o seu mar).
+* **Tabuleiro próprio**: usado para posicionar os próprios navios
+* **Tabuleiro de ataque**: usado para atacar certas posições
+
+### Turnos
+
+Os jogadores jogam alternadamente.
+
+Durante o seu turno, o jogador:
+
+1. Escolhe uma coordenada do tabuleiro adversário.
+2. Indica a coordenada, por exemplo `E7`.
+3. O adversário verifica se existe algum navio nessa posição.
+
+   * **Água** — nenhum navio foi atingido.
+   * **Atingido** — uma parte de um navio foi atingida.
+   * **Afundado** — a última parte desse navio foi atingida.
+5. O resultado é registado no tabuleiro de ataque.
+
+Depois, o turno passa para o outro jogador.
+
