@@ -1,3 +1,7 @@
-# Battleship
+# nickname
 
-Basic academic version of Battleship game to build upon.
+### LETI - ISCTE
+
+| 122637 | Daniel Sequeira /\
+| 111591 | Manuel Pereira /\
+| 129789 | José Salvação /
