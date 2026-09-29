@@ -1,4 +1,9 @@
 /**
+ * Represents a fleet of ships in the Battleship Game.
+ *
+ *<p>A fleet manages a collection of ships and provides operations
+ * to add ships, retrieve ships by category, find floating ships,
+ * and determine which ship occupies a given position.</p>
  *
  */
 package iscteiul.ista.battleship;
@@ -18,23 +23,40 @@ public class Fleet implements IFleet {
     }
 
     // -----------------------------------------------------
-
+    /**
+     * The list of ships belonging to this fleet.
+     */
+    
     private List<IShip> ships;
 
+     /**
+     * Creates an empty fleet.
+     */
+    
     public Fleet() {
         ships = new ArrayList<>();
     }
 
+    /**
+     * Returns all the ships belonging to this fleet.
+     *
+     * @return the list of ships in the fleet
+     */
     @Override
     public List<IShip> getShips() {
         return ships;
     }
 
-    /*
-     * (non-Javadoc)
+   /**
+     * Adds a ship to the fleet if it is inside the board,
+     * does not collide with another ship, and the fleet has
+     * not reached its maximum size.
      *
-     * @see battleship.IFleet#addShip(battleship.IShip)
+     * @param s the ship to add
+     * @return {@code true} if the ship was successfully added;
+     *         {@code false} otherwise
      */
+    
     @Override
     public boolean addShip(IShip s) {
         boolean result = false;
@@ -45,11 +67,14 @@ public class Fleet implements IFleet {
         return result;
     }
 
-    /*
-     * (non-Javadoc)
+     /**
+     * Returns all ships belonging to the specified category.
      *
-     * @see battleship.IFleet#getShipsLike(java.lang.String)
+     * @param category the category of ships to search for
+     * @return a list containing all ships that belong to the
+     *         specified category
      */
+    
     @Override
     public List<IShip> getShipsLike(String category) {
         List<IShip> shipsLike = new ArrayList<>();
@@ -60,11 +85,12 @@ public class Fleet implements IFleet {
         return shipsLike;
     }
 
-    /*
-     * (non-Javadoc)
+   /**
+     * Returns all ships that are still floating.
      *
-     * @see battleship.IFleet#getFloatingShips()
+     * @return a list containing the ships that have not yet sunk
      */
+    
     @Override
     public List<IShip> getFloatingShips() {
         List<IShip> floatingShips = new ArrayList<>();
@@ -75,11 +101,14 @@ public class Fleet implements IFleet {
         return floatingShips;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Finds the ship occupying the specified position.
      *
-     * @see battleship.IFleet#shipAt(battleship.IPosition)
+     * @param pos the position to search for
+     * @return the ship occupying the position, or {@code null}
+     *         if no ship occupies that position
      */
+    
     @Override
     public IShip shipAt(IPosition pos) {
         for (int i = 0; i < ships.size(); i++)
@@ -88,10 +117,27 @@ public class Fleet implements IFleet {
         return null;
     }
 
+    /**
+     * Checks whether a ship is completely inside the game board.
+     *
+     * @param s the ship to check
+     * @return {@code true} if the ship is inside the board;
+     *         {@code false} otherwise
+     */
+
     private boolean isInsideBoard(IShip s) {
         return (s.getLeftMostPos() >= 0 && s.getRightMostPos() <= BOARD_SIZE - 1 && s.getTopMostPos() >= 0
                 && s.getBottomMostPos() <= BOARD_SIZE - 1);
     }
+
+    /**
+     * Checks whether a ship is too close to any ship already
+     * belonging to the fleet.
+     *
+     * @param s the ship to check
+     * @return {@code true} if the ship is too close to another
+     *         ship; {@code false} otherwise
+     */
 
     private boolean colisionRisk(IShip s) {
         for (int i = 0; i < ships.size(); i++) {
@@ -101,9 +147,11 @@ public class Fleet implements IFleet {
         return false;
     }
 
-
     /**
-     * This operation shows the state of a fleet
+     * Displays the current state of the fleet.
+     *
+     * <p>The status includes all ships, floating ships,
+     * and ships grouped by their respective categories.</p>
      */
     public void printStatus() {
         printAllShips();
