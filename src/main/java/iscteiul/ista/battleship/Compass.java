@@ -20,7 +20,7 @@ package iscteiul.ista.battleship;
  * </ul>
  *
  * @author fba
- * @version 1.0
+ * @version 1.1
  */
 public enum Compass {
 
